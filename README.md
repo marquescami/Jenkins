@@ -12,8 +12,41 @@
 
 ![Captura de Tela 2022-12-14 às 13 32 35](https://user-images.githubusercontent.com/31116694/207655795-27be39a5-7d3c-4178-9ea5-e60695cf37db.jpg)
 
-7) Após a finalização, crie um usuário e senha.
-8) Ao finalizar a criação do usuário e senha, confirme o endereço informado como localhost.
-9) Atualize a página e insira os dados de login para ter acesso a página.
+5) Após a finalização, crie um usuário e senha.
+6) Ao finalizar a criação do usuário e senha, confirme o endereço informado como localhost.
+7) Atualize a página e insira os dados de login para ter acesso a página.
+
+8) Clique em Criar new job
+
+![Captura de Tela 2022-12-14 às 16 26 35](https://user-images.githubusercontent.com/31116694/207695375-96030ab9-e900-4c2d-a272-1697af0df785.png)
+
+9) Informe o nome e selecione a opção Pipeline conforme abaixo:
+
+![Captura de Tela 2022-12-14 às 16 31 41](https://user-images.githubusercontent.com/31116694/207697046-5241d678-3ab8-464b-ae05-96223e92ad41.png)
+
+10) Abrirá a página abaixo
+
+<img width="1274" alt="Captura de Tela 2022-12-14 às 16 38 45" src="https://user-images.githubusercontent.com/31116694/207698191-0054983e-f542-4950-adc1-d7dd696a27cf.png">
+
+11) Ir até o final da página e selecionar conforme imagem os items abaixo:
+
+  11.1) Em Pipeline a opção -> Pipeline script from SCM (que pegará um arquivo chamado Jenkinsfile do projeto deste repositório) 
+  
+  11.2) Em SCM selecionar a opção Git
+  
+  11.3) Em Repository url inserir a url: 
+  https://github.com/marquescami/Jenkins
+  
+  11.4) Em Script path:
+  jenkins/Jenkinsfile
+  
+  ![Captura de Tela 2022-12-14 às 16 51 12](https://user-images.githubusercontent.com/31116694/207700966-78c3c642-7979-4530-b696-02bd0878293e.png)
+  
+  ![Captura de Tela 2022-12-14 às 16 51 30](https://user-images.githubusercontent.com/31116694/207700977-1635b0bd-53f5-4beb-a338-41d1cce55a19.png)
+  
+  12) Clicar em Construir agora:
+   <img width="389" alt="Captura de Tela 2022-12-14 às 16 57 16" src="https://user-images.githubusercontent.com/31116694/207701769-82238b53-3966-4658-b759-9a2657ded431.png">
 
 
+
+  
