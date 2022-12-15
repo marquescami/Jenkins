@@ -13,7 +13,7 @@ https://www.jenkins.io/doc/
 1) No terminal, acesse: docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
 2) Vá para o navegador e acesse o endereço: http://localhost:8080/
 3) Caso a senha de acesso ao Jenkins não seja exibida no log (Apenas no primeiro acesso), utilize o comando:
-"docker logs (D-container" para obter a senha de acesso. (Ex: b2afb7b062d64c90b9770d78af25ff7b)
+"docker logs (ID-container" para obter a senha de acesso. (Ex: b2afb7b062d64c90b9770d78af25ff7b)
 4) Após inserir a senha na página do jenkins e avançar, selecione a opção: Install Suggested plugins  
 
 ![Captura de Tela 2022-12-14 às 13 32 35](https://user-images.githubusercontent.com/31116694/207655795-27be39a5-7d3c-4178-9ea5-e60695cf37db.jpg)
