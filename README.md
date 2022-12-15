@@ -90,7 +90,7 @@ pipeline {
 
 # Continue aprendendo sobre o Jenkins
 
-## Integrando Jenkins com o github
+Integrando o Jenkins com o github
 
 01) Na tela principal do Jenkins, clique em "create a job".
 02) Escolha um nome e selecione a opção "pipeline".
