@@ -18,7 +18,7 @@ O Jenkins pode ser instalado por meio de pacotes nativos do sistema, Docker ou a
 6) Ao finalizar a criação do usuário e senha, confirme o endereço informado como localhost.
 7) Atualize a página e insira os dados de login para ter acesso a página.
 
-8) Clique em Criar new job
+8) Clique em Create a job
 
 ![Captura de Tela 2022-12-14 às 16 26 35](https://user-images.githubusercontent.com/31116694/207695375-96030ab9-e900-4c2d-a272-1697af0df785.png)
 
@@ -67,4 +67,90 @@ clique no botão para gerar o token
   13) Clicar em Construir agora:
    <img width="389" alt="Captura de Tela 2022-12-14 às 16 57 16" src="https://user-images.githubusercontent.com/31116694/207701769-82238b53-3966-4658-b759-9a2657ded431.png">
 
+
+##  Exemplos para execução:
+
+### Exemplo 1 -  Clonar o repositório github no script do pipeline do Jenkins e rodar um arquivo de script bash para imprimir hello world
+
+01) Na tela principal do Jenkins, clique em "create a job".
+02) Escolha um nome e selecione a opção "pipeline".
+03) Na seção Pipeline -> Script insira o código abaixo:
+
+```
+  pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git url: 'https://github.com/naiveskill/devops.git', branch: 'main'
+                // Change file permisson
+                sh "chmod +x -R ./jenkins"
+                // Run shell script
+                sh "./jenkins/script/scripted_pipeline_ex_2.sh"
+            }
+        }
+    }
+}
+```
+ - Deve ficar desta forma.
+<img width="969" alt="Captura de Tela 2022-12-15 às 07 26 17" src="https://user-images.githubusercontent.com/31116694/207835744-0868e8bc-0497-4872-b81e-a776b8b89164.png">
+
+
+4) Clique em Salvar
+5) Clicar em Build now (Construa agora)
+
+### Exemplo 2 - Testando checkout SCM do Git
+
+01) Na tela principal do Jenkins, clique em "create a job".
+02) Escolha um nome e selecione a opção "pipeline".
+03) Na seção "pipeline" insira o código:
+
+```
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+              checkout([$class: 'GitSCM', 
+                branches: [[name: '*/main']],
+                doGenerateSubmoduleConfigurations: false,
+                extensions: [[$class: 'CleanCheckout']],
+                submoduleCfg: [], 
+                userRemoteConfigs: [[url: 'https://github.com/naiveskill/devops.git']]])
+              sh "ls -ltr"
+          }
+        }
+    }
+}
+```
+4) Clique em Salvar
+5) Clicar em Build now (Construa agora)
+
+
+### Exemplo 3 - Integrando Jenkins com o github
+
+01) Na tela principal do Jenkins, clique em "create a job".
+02) Escolha um nome e selecione a opção "pipeline".
+03) Em Build Trigger, marque a opção: GitHub hook trigger for GITScm polling
+
+<img width="601" alt="Captura de Tela 2022-12-15 às 07 38 34" src="https://user-images.githubusercontent.com/31116694/207838151-ecd47c8a-1bf9-4543-9f89-4ad3040e7eb5.png">
+
+5) No tópico Pipeline, em definition, altere para: "Pipeline Script from SCM".
+	Em SCM, selecione: GIT. Em "Repository url" digite: https://github.com/christianhxc/jenkins-pipeline-tutorial.git
+	Em script Path, altere para: hello-world/Jenkinsfile. Em seguida salve as alterações.
+  
+![Captura de Tela 2022-12-15 às 07 41 58](https://user-images.githubusercontent.com/31116694/207839472-668d475e-997a-45fd-ad57-89d34e5336c2.png)
+![Captura de Tela 2022-12-15 às 07 43 27](https://user-images.githubusercontent.com/31116694/207839484-d03a33fe-fc17-4a7d-bcf2-1236bb701139.png)
+
+6) Acesse https://github.com/.... e faça um fork do repositório.
+7) Dentro do repositório da aplicação, acesse configurações (Settings). Em seguida, no menu a esquerda, acesse o item: “Webhook” > add webhook.
+9) Instalar o ngrok e digitar o comando, no terminal: ngrok http 8080
+10) Efetue o login no Github. Na nova tela, em: “Payload Url”, insira: “Ip fornecido pelo ngrok/github-webhook/”.
+	Em content type, selecione: application/json. Em seguida clique em add Webhook.
+11) Na página principal do Jenkins, clique em Construir agora ou Build Now.
+12) O status da compilação será exibido na tela.
+A integração já está finalizada com estes passos.
+13) No seu diretório do github realize qualquer alteração, como um push ou commit.
+14) O jenkins identificará a alteração na página principal.
 
