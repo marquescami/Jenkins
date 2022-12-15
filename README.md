@@ -1,4 +1,4 @@
-# Jenkins <img src="https://user-images.githubusercontent.com/31116694/207651940-59711223-f9ff-454a-a082-77fcb27f8faf.png" width="100" height="80" />
+# Jenkins <img src="https://user-images.githubusercontent.com/31116694/207864972-dba2cc31-5912-4eb1-bfb6-5c9dccc9b818.png" width="100" height="130" />
 
 
 Jenkins é um servidor de automação de código aberto independente que pode ser usado para automatizar todos os tipos de tarefas relacionadas à criação, teste e entrega ou implantação de software.
@@ -8,7 +8,10 @@ O Jenkins pode ser instalado por meio de pacotes nativos do sistema, Docker ou a
 Documentação oficial 
 https://www.jenkins.io/doc/
 
-##  Instruções para execução do Jenkins no Docker usando o GitHub: 
+##  Instruções para execução do Jenkins no Docker:
+
+ <img src="https://user-images.githubusercontent.com/31116694/207651940-59711223-f9ff-454a-a082-77fcb27f8faf.png" width="120" height="100" />
+
 
 1) No terminal, acesse: docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
 2) Vá para o navegador e acesse o endereço: http://localhost:8080/
@@ -23,7 +26,7 @@ https://www.jenkins.io/doc/
 7) Atualize a página e insira os dados de login para ter acesso a página.
 
 
-##  Exemplos para execução do Jenkins
+##  Exemplos para execução no Jenkins
 
 ### Exemplo 1 -  Clonar o repositório github no script do pipeline do Jenkins e rodar um arquivo de script bash para imprimir hello world
 
